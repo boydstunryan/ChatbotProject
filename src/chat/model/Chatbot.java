@@ -30,8 +30,19 @@ public class Chatbot
 		this.intro = null;
 		this.currentTime = null;
 		this.topics = null;
-		this.verbs = null;
+		this.verbs = new String [4];
 		this.followUps = null;
+		
+		buildVerbs();
+		buildShoppingList();
+	}
+	
+	private void buildVerbs()
+	{
+		verbs[0] = "like";
+		verbs[1] = "dislike";
+		verbs[2] = "am ambivalent about";
+		verbs[3] = "am thinking about";
 	}
 
 	private void buildMovieList()
@@ -61,7 +72,12 @@ public class Chatbot
 	
 	public boolean lengthChecker(String input)
 	{
-		return false;
+		boolean validLength = false;
+		
+		if (input != null && input.length() > 2)
+		{
+			validLength = true;
+		}
 	}
 	
 	public boolean htmlTagChecker(String input)
